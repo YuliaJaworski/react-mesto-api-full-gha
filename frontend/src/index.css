@@ -1,0 +1,74 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
+
+@import url(./blocks/page/__full-screen/page__full-screen.css);
+@import url(./blocks/page/page.css);
+
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__title/header__title.css);
+@import url(./blocks/header/__title-button/header__title-button.css);
+@import url(./blocks/header/__container/header__container.css);
+
+@import url(./blocks/main/main.css);
+
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__main/profile__main.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__edit/profile__edit.css);
+@import url(./blocks/profile/__add-button/profile__add-button.css);
+@import url(./blocks/profile/__avatar/profile__avatar.css);
+@import url(./blocks/profile/__edit-button/profile__edit-button.css);
+@import url(./blocks/profile/__job/profile__job.css);
+@import url(./blocks/profile/__job/profile__job.css);
+@import url(./blocks/profile/__name/profile__name.css);
+@import url(./blocks/profile/__overlay/profile__overlay.css);
+
+@import url(./blocks/elements/elements.css);
+@import url(./blocks/elements/__grid/elements__grid.css);
+
+@import url(./blocks/element/element.css);
+@import url(./blocks/element/__description/element__description.css);
+@import url(./blocks/element/__like/element__like.css);
+@import url(./blocks/element/__name/element__name.css);
+@import url(./blocks/element/__photo/element__photo.css);
+@import url(./blocks/element/__delete/element__delete.css);
+@import url(./blocks/element/__like/_active/element__like_active.css);
+@import url(./blocks/element/__delete/_active/element__delete_active.css);
+@import url(./blocks/element/__count-likes/element__count-likes.css);
+@import url(./blocks/element/__likes/element__likes.css);
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);
+
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__close/popup__close.css);
+@import url(./blocks/popup/__container/popup__container.css);
+@import url(./blocks/popup/__heading/popup__heading.css);
+@import url(./blocks/popup/__element/popup__element.css);
+@import url(./blocks/popup/__element/_field/popup__element_field_job.css);
+@import url(./blocks/popup/__element/_field/popup__element_field_name.css);
+@import url(./blocks/popup/__element/_field/popup__element_field_title.css);
+@import url(./blocks/popup/__element/_field/popup__element_field_link.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
+@import url(./blocks/popup/__save/popup__save.css);
+@import url(./blocks/popup/__photo/popup__photo.css);
+@import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/__container-photo/popup__container-photo.css);
+@import url(./blocks/popup/_open-photo/popup_open-photo.css);
+@import url(./blocks/popup/__element/_field/popup__element_field_error.css);
+@import url(./blocks/popup/__span/popup__span.css);
+@import url(./blocks/popup/__save/_disabled/popup__save_disabled.css);
+@import url(./blocks/popup/__element/_field/popup__element_field_avatar.css);
+@import url(./blocks/popup/__save/_field/popup__save_field_avatar.css);
+@import url(./blocks/popup/_auth/popup_auth.css);
+@import url(./blocks/popup/__heading/_auth/popup__heading_auth.css);
+@import url(./blocks/popup/__save/_auth/popup__save_auth.css);
+@import url(./blocks/popup/__element/_field/popup__element_field_auth.css);
+@import url(./blocks/popup/__postscriptum/popup__postscriptum.css);
+@import url(./blocks/popup/__postscriptum-link/popup__postscriptum-link.css);
+@import url(./blocks/popup/__img-register/popup__img-register.css);
+@import url(./blocks/popup/__img-register/_type/popup__img-register_type_confirm.css);
+@import url(./blocks/popup/__img-register/_type/popup__img-register_type_error.css);
+@import url(./blocks/popup/__container-confirm/popup__container-confirm.css);
+@import url(./blocks/popup/__heading-confirm/popup__heading-confirm.css);

@@ -1,0 +1,9 @@
+.popup__element_field_link {
+    margin-top: 17px;
+}
+
+@media screen and (max-width: 768px) {
+    .popup__element_field_link {
+        margin-top: 10px;
+      }
+}

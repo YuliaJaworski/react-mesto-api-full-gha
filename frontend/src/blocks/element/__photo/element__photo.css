@@ -1,0 +1,33 @@
+.element__photo {
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-width: 282px;
+    max-height: 282px;
+    min-height: 282px;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    .element__photo {
+      max-width: 355px;
+      max-height: 355px;
+    }
+
+  }
+
+  @media screen and (max-width: 500px) {
+    .element__photo {
+      max-width: 462px;
+      max-height: 462px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .element__photo {
+        max-height: 282px;
+    }
+  }
+
+

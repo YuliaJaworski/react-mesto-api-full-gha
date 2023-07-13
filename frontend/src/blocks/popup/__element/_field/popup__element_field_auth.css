@@ -1,0 +1,10 @@
+.popup__element_field_auth {
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  margin-top: 17px;
+  padding-top: 13px;
+  color: white;
+}
+
+.popup__element_field_auth:first-child {
+  margin-top: 37px;
+}

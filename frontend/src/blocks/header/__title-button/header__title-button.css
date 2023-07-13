@@ -1,0 +1,8 @@
+.header__title-button {
+  color: #a9a9a9;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding-left: 24px;
+  cursor: pointer;
+}
