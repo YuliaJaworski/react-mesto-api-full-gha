@@ -37,7 +37,8 @@ function Register() {
 
     auth
       .register(password, email)
-      .then(() => {
+      .then((data) => {
+        console.log(data);
         setIsConfirmPopupOpen(true);
         setError(false);
       })

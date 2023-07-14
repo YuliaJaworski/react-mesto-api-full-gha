@@ -123,7 +123,7 @@ function App() {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       auth
-        .checkToken(jwt)
+        .checkToken()
         .then((user) => {
           handleLogin(user.data.email);
           navigate("/mesto");

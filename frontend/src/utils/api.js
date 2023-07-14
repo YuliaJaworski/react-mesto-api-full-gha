@@ -17,6 +17,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: "GET",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 
@@ -29,6 +30,7 @@ class Api {
         name,
         link,
       }),
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 
@@ -37,6 +39,7 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       method: "GET",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 
@@ -49,6 +52,7 @@ class Api {
         name,
         about,
       }),
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 
@@ -57,6 +61,7 @@ class Api {
     return fetch(`${this._url}/cards/${id}/likes`, {
       method: "PUT",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 
@@ -65,6 +70,7 @@ class Api {
     return fetch(`${this._url}/cards/${id}/likes`, {
       method: "DELETE",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 
@@ -73,6 +79,7 @@ class Api {
     return fetch(`${this._url}/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 
@@ -82,12 +89,13 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),
+      credentials: "include",
     }).then((res) => this._getResponseData(res));
   }
 }
 
 const api = new Api({
-  url: "https://localhost:3000",
+  url: "http://localhost:3000",
   headers: {
     "content-type": "application/json",
     // authorization: 'c26594ca-8d0e-4994-82bd-fba2c3fd8012'

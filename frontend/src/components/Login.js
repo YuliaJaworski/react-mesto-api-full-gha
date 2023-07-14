@@ -27,7 +27,8 @@ function Login({ handleLogin }) {
     auth
       .login(password, email)
       .then((data) => {
-        console.log(data);
+        const jwt = document.cookie;
+        console.log(jwt);
         if (data.token) {
           localStorage.setItem("jwt", data.token);
           handleLogin(email);
