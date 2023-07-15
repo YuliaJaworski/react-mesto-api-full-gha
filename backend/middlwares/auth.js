@@ -21,7 +21,7 @@ const auth = (req, res, next) => {
   // req.user = payload;
   // next();
   const { authorization } = req.headers;
-  console.log(authorization);
+  console.log(req.headers);
 
   if (!authorization || !authorization.startsWith("Bearer ")) {
     return res.status(401).send({ message: "Необходима авторизация" });
