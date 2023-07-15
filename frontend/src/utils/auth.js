@@ -22,12 +22,12 @@ export const login = (password, email) => {
   }).then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
 };
 
-export const checkToken = () => {
+export const checkToken = (token) => {
   return fetch(`${url}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     credentials: "include",
   })

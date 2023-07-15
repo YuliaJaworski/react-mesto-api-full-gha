@@ -27,6 +27,7 @@ function App() {
       api
         .getUserName()
         .then((data) => {
+          console.log(data);
           setCurrentUser(data);
         })
         .catch((err) => console.log(err));
@@ -38,6 +39,7 @@ function App() {
       api
         .getAllCards()
         .then((data) => {
+          console.log(data);
           setCards(data);
         })
         .catch((err) => console.log(err));
@@ -123,9 +125,9 @@ function App() {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       auth
-        .checkToken()
+        .checkToken(jwt)
         .then((user) => {
-          handleLogin(user.data.email);
+          handleLogin(user.email);
           navigate("/mesto");
         })
         .catch((err) => console.log(err));

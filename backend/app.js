@@ -6,7 +6,7 @@
 /* eslint-disable quotes */
 const express = require("express");
 const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 const { errors } = require("celebrate");
 const helmet = require("helmet");
 const cors = require("cors");
@@ -28,7 +28,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/mestodb", {
 });
 
 app.use(express.json());
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(helmet());
 app.use(requestLogger);
 

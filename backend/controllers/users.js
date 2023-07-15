@@ -93,17 +93,19 @@ const login = (req, res, next) => {
     .then((user) => {
       bcrypt.compare(String(password), user.password).then((isValidUser) => {
         if (isValidUser) {
-          const jwt = jsonwebtoken.sign(
+          // const jwt = jsonwebtoken.sign(
+          const token = jsonwebtoken.sign(
             {
               _id: user._id,
             },
-            "SECRET"
+            "SECRET",
+            { expiresIn: "7d" }
           );
-          res.cookie("jwt", jwt, {
-            maxAge: 360000,
-            httpOnly: true,
-          });
-          res.send({ data: user.toJSON() });
+          // res.cookie("jwt", jwt, {
+          //   maxAge: 360000,
+          //   httpOnly: true,
+          // });
+          res.send({ data: user.toJSON(), token });
         } else {
           res.status(401).send({ message: "неправильный email или пароль" });
         }
