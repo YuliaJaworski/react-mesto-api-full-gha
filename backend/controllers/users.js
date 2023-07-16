@@ -99,7 +99,7 @@ const login = (req, res, next) => {
             {
               _id: user._id,
             },
-            "SECRET",
+            process.env["JWT_SECRET"],
             { expiresIn: "7d" }
           );
           // res.cookie("jwt", jwt, {
