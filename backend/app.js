@@ -32,14 +32,14 @@ app.use(express.json());
 app.use(helmet());
 app.use(requestLogger);
 
-app.post("/signin", validateUserBody, login);
+app.post("/api/signin", validateUserBody, login);
 
-app.post("/signup", validateUserBody, createUser);
+app.post("/api/signup", validateUserBody, createUser);
 
 app.use(auth);
 
-app.use(userRoutes);
-app.use(cardRoutes);
+app.use("/api", userRoutes);
+app.use("/api", cardRoutes);
 
 app.use("*", (req, res, next) => {
   next(new Error("Маршрут не найден."));
