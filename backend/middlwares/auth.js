@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable dot-notation */
 /* eslint-disable consistent-return */
 /* eslint-disable quotes */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -7,33 +8,24 @@
 const jwt = require("jsonwebtoken");
 
 const auth = (req, res, next) => {
-  // const token = req.cookies.jwt;
-  // let payload;
-
-  // try {
-  //   payload = jwt.verify(token, "SECRET");
-  // } catch (e) {
-  //   const err = new Error("необходима авторизация");
-  //   err.statusCode = 401;
-  //   next(err);
-  // }
-
-  // req.user = payload;
-  // next();
   const { authorization } = req.headers;
   console.log(req.headers);
 
   if (!authorization || !authorization.startsWith("Bearer ")) {
-    return res.status(401).send({ message: "Необходима авторизация" });
+    const err = new Error("необходима авторизация");
+    err.statusCode = 401;
+    next(err);
   }
 
   const token = authorization.replace("Bearer ", "");
   let payload;
 
   try {
-    payload = jwt.verify(token, "SECRET");
-  } catch (err) {
-    return res.status(401).send({ message: "Необходима авторизация" });
+    payload = jwt.verify(token, process.env["JWT_SECRET"]);
+  } catch (e) {
+    const err = new Error("необходима авторизация");
+    err.statusCode = 401;
+    next(err);
   }
 
   req.user = payload; // записываем пейлоуд в объект запроса

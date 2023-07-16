@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable dot-notation */
 /* eslint-disable consistent-return */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/order */
@@ -98,7 +99,7 @@ const login = (req, res, next) => {
             {
               _id: user._id,
             },
-            "SECRET",
+            process.env["JWT_SECRET"],
             { expiresIn: "7d" }
           );
           // res.cookie("jwt", jwt, {

@@ -27,7 +27,6 @@ function App() {
       api
         .getUserName()
         .then((data) => {
-          console.log(data);
           setCurrentUser(data);
         })
         .catch((err) => console.log(err));
@@ -39,8 +38,7 @@ function App() {
       api
         .getAllCards()
         .then((data) => {
-          console.log(data);
-          setCards(data);
+          setCards(data.reverse());
         })
         .catch((err) => console.log(err));
     }
@@ -54,7 +52,7 @@ function App() {
 
   //поставить лайк
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     if (!isLiked) {
       api

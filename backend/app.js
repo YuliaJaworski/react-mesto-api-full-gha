@@ -4,9 +4,9 @@
 /* eslint-disable function-paren-newline */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable quotes */
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-// const cookieParser = require("cookie-parser");
 const { errors } = require("celebrate");
 const helmet = require("helmet");
 const cors = require("cors");
