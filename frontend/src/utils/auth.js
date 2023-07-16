@@ -1,4 +1,4 @@
-export const url = "http://localhost:3000";
+export const url = "https://api.mestojj.nomoredomains.xyz";
 
 export const register = (password, email) => {
   return fetch(`${url}/signup`, {

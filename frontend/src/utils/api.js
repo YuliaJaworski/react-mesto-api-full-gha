@@ -97,7 +97,7 @@ class Api {
 const token = localStorage.getItem("jwt");
 
 const api = new Api({
-  url: "http://localhost:3000",
+  url: "https://api.mestojj.nomoredomains.xyz",
   headers: {
     "content-type": "application/json",
     Authorization: `Bearer ${token}`,
