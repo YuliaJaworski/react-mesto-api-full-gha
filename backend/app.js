@@ -21,9 +21,7 @@ const { requestLogger, errorLogger } = require("./middlwares/logger");
 
 const app = express();
 
-app.use(
-  cors({ credentials: true, origin: "http://mestojj.nomoredomains.xyz" })
-);
+app.use(cors({ credentials: true, origin: "http://localhost:3001" }));
 
 mongoose.connect("mongodb://127.0.0.1:27017/mestodb", {
   useNewUrlParser: true,
