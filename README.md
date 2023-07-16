@@ -10,7 +10,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.102.18
+IP-адрес https://158.160.102.18
 
 Frontend https://mestojj.nomoredomains.xyz
 
