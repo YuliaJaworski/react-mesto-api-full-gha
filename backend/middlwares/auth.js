@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable comma-dangle */
 /* eslint-disable dot-notation */
 /* eslint-disable consistent-return */
 /* eslint-disable quotes */
@@ -6,6 +7,8 @@
 /* eslint-disable eol-last */
 // eslint-disable-next-line quotes
 const jwt = require("jsonwebtoken");
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
@@ -21,7 +24,10 @@ const auth = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, process.env["JWT_SECRET"]);
+    payload = jwt.verify(
+      token,
+      NODE_ENV === "production" ? JWT_SECRET : "dev-secret"
+    );
   } catch (e) {
     const err = new Error("необходима авторизация");
     err.statusCode = 401;

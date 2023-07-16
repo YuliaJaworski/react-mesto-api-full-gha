@@ -12,6 +12,8 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jsonwebtoken = require("jsonwebtoken");
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 // получить всех пользователей
 const getUsers = (req, res, next) => {
   User.find({})
@@ -99,7 +101,7 @@ const login = (req, res, next) => {
             {
               _id: user._id,
             },
-            process.env["JWT_SECRET"],
+            NODE_ENV === "production" ? JWT_SECRET : "dev-secret",
             { expiresIn: "7d" }
           );
           // res.cookie("jwt", jwt, {
