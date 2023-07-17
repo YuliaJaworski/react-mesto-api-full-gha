@@ -1,37 +1,31 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable quotes */
-const mongoose = require("mongoose");
-const validator = require("validator");
+const mongoose = require('mongoose');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    default: "Жак-Ив Кусто",
-    required: true,
+    default: 'Жак-Ив Кусто',
     minlength: 2,
     maxlength: 30,
   },
   about: {
     type: String,
-    default: "Исследователь",
-    required: true,
+    default: 'Исследователь',
     minlength: 2,
     maxlength: 30,
   },
   avatar: {
     type: String,
     default:
-      "https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png",
-    required: true,
+      'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
     validate: {
       validator(value) {
         return validator.isURL(value, {
-          protocols: ["http", "https"],
+          protocols: ['http', 'https'],
           require_protocol: true,
         });
       },
-      message: "Неверный URL-адрес",
+      message: 'Неверный URL-адрес',
     },
   },
   email: {
@@ -42,7 +36,7 @@ const userSchema = new mongoose.Schema({
       validator(value) {
         return validator.isEmail(value);
       },
-      message: "Неверный формат email-адреса",
+      message: 'Неверный формат email-адреса',
     },
   },
   password: {
@@ -58,4 +52,4 @@ userSchema.methods.toJSON = function () {
   return user;
 };
 
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model('user', userSchema);
