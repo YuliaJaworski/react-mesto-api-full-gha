@@ -44,11 +44,11 @@ const error = (err, req, res, next) => {
   let newError;
 
   if (err instanceof NotFoundError) {
-    newError = NotFoundError;
+    newError = err;
   } else if (err instanceof TokenError) {
-    newError = TokenError;
+    newError = err;
   } else if (err instanceof DeleteError) {
-    newError = DeleteError;
+    newError = err;
   } else if (err.name === 'CastError') {
     newError = new ValidError('Переданы некорректные данные.');
   } else if (err.name === 'ValidationError') {
