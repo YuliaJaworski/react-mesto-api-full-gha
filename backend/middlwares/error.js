@@ -43,24 +43,12 @@ class ConflictError extends Error {
 const error = (err, req, res, next) => {
   let newError;
 
-  if (err.message === 'Not found') {
-    newError = new NotFoundError('Пользователь по указанному _id не найден.');
-  } else if (err.message === 'Not found userId') {
-    newError = new NotFoundError('Пользователь по указанному _id не найден.');
-  } else if (err.message === 'Not found card') {
-    newError = new NotFoundError('Карточка с указанным _id не найдена.');
-  } else if (err.message === 'Not found cardId') {
-    newError = new NotFoundError(
-      'Переданы некорректные данные для постановки/снятии лайка.',
-    );
-  } else if (err.message === 'Пользователь не найден') {
-    newError = new TokenError('Введен несуществующий email');
-  } else if (err.message === 'Маршрут не найден.') {
-    newError = new NotFoundError('Маршрут не найден.');
-  } else if (err.message === 'необходима авторизация') {
-    newError = new TokenError('необходима авторизация');
-  } else if (err.message === 'Вы не можете удалить эту карточку') {
-    newError = new DeleteError('Вы не можете удалить эту карточку');
+  if (err instanceof NotFoundError) {
+    newError = NotFoundError;
+  } else if (err instanceof TokenError) {
+    newError = TokenError;
+  } else if (err instanceof DeleteError) {
+    newError = DeleteError;
   } else if (err.name === 'CastError') {
     newError = new ValidError('Переданы некорректные данные.');
   } else if (err.name === 'ValidationError') {
@@ -77,4 +65,9 @@ const error = (err, req, res, next) => {
   next();
 };
 
-module.exports = { error, NotFoundError, TokenError };
+module.exports = {
+  error,
+  NotFoundError,
+  TokenError,
+  DeleteError,
+};

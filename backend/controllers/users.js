@@ -15,14 +15,14 @@ const getUsers = (req, res, next) => {
 // получить пользователя по id
 const getUserById = (req, res, next) => {
   User.findById(req.params.id)
-    .orFail(() => new NotFoundError('Not found'))
+    .orFail(() => new NotFoundError('Пользователь по указанному _id не найден.'))
     .then((user) => res.status(200).send(user))
     .catch(next);
 };
 
 const getUser = (req, res, next) => {
   User.findById(req.user._id)
-    .orFail(() => new NotFoundError('Not found'))
+    .orFail(() => new NotFoundError('Пользователь по указанному _id не найден.'))
     .then((user) => res.status(200).send(user))
     .catch(next);
 };
@@ -62,7 +62,7 @@ const updateUserInfo = (req, res, next) => {
     { name, about },
     { new: true, runValidators: true },
   )
-    .orFail(() => new NotFoundError('Not found userId'))
+    .orFail(() => new NotFoundError('Пользователь по указанному _id не найден.'))
     .then((user) => {
       res.status(200).send(user);
     })
@@ -73,17 +73,14 @@ const updateUserInfo = (req, res, next) => {
 const updateUserAvatar = (req, res, next) => {
   const { avatar } = req.body;
   User.findByIdAndUpdate(req.user._id, { avatar }, { new: true, runValidators: true })
-    .orFail(() => new NotFoundError('Not found userId'))
+    .orFail(() => new NotFoundError('Пользователь по указанному _id не найден.'))
     .then((user) => res.status(200).send(user))
     .catch(next);
 };
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
-  if (!email || !password) {
-    res.status(401).send({ message: 'введите данные' });
-    return;
-  }
+
   User.findOne({ email })
     .select('+password')
     .orFail(() => new NotFoundError('Пользователь не найден'))
@@ -104,7 +101,15 @@ const login = (req, res, next) => {
         }
       });
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        if (err.errors.email.kind === 'required' || err.errors.password.kind === 'required') {
+          next(new TokenError('Введите данные'));
+        }
+      } else {
+        next(err);
+      }
+    });
 };
 
 module.exports = {
